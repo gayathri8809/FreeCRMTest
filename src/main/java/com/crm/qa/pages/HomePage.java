@@ -10,7 +10,7 @@ import com.crm.qa.base.TestBase;
 
 public class HomePage extends TestBase {
 
-	@FindBy(xpath = "//td[contains(text(),'User: Naveen K')]")
+	@FindBy(xpath = "//td[contains(text(),'User: tester selenium')]")
 	@CacheLookup
 	WebElement userNameLabel;
 
@@ -26,6 +26,8 @@ public class HomePage extends TestBase {
 
 	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
 	WebElement tasksLink;
+	
+	
 
 	// Initializing the Page Objects:
 	public HomePage() {

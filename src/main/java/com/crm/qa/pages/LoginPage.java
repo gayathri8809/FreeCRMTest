@@ -2,12 +2,16 @@ package com.crm.qa.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.util.*;
 
 public class LoginPage extends TestBase{
+	
+	TestUtil testUtil;
 	
 	//Page Factory - OR:
 	@FindBy(name="username")
@@ -25,9 +29,13 @@ public class LoginPage extends TestBase{
 	@FindBy(xpath="//img[contains(@class,'img-responsive')]")
 	WebElement crmLogo;
 	
+	@FindBy(xpath="//*[contains(text(),'Features')]")
+	WebElement featuresLink;
+	
 	//Initializing the Page Objects:
 	public LoginPage(){
 		PageFactory.initElements(driver, this);
+		
 	}
 	
 	//Actions:
@@ -39,6 +47,13 @@ public class LoginPage extends TestBase{
 		return crmLogo.isDisplayed();
 	}
 	
+	public FeaturesPage validateFeaturesPageLink() {
+		Actions actions= new Actions(driver);
+		actions.click(featuresLink).build().perform();
+		return new FeaturesPage();
+	}
+	
+	
 	public HomePage login(String un, String pwd){
 		username.sendKeys(un);
 		password.sendKeys(pwd);
@@ -49,4 +64,5 @@ public class LoginPage extends TestBase{
 		return new HomePage();
 	}
 	
+
 }

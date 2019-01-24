@@ -20,7 +20,7 @@ public class FreeCrmTest {
 
 	@BeforeMethod
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "C:\\SOFTWARES\\Selenium-WebDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor) driver;
 		driver.get("https://www.freecrm.com/index.html");
@@ -30,14 +30,14 @@ public class FreeCrmTest {
 	public void freeCrmTitleTest() throws InterruptedException, IOException {
 		String title = driver.getTitle();
 		System.out.println("title is: " + title);
-		getRunTimeInfoMessage("info", title);
+		//getRunTimeInfoMessage("info", title);
 
-		if (title.equals("Free CRM software in the cloud powers sales and customer serviceQQQQ")) {
-			getRunTimeInfoMessage("info", "title is correct!! YAY!!!");
+		if (title.equals("#1 Free CRM software in the cloud for sales and service")) {
+			//getRunTimeInfoMessage("info", "title is correct!! YAY!!!");
 			Assert.assertTrue(true);
 		} else {
-			getRunTimeInfoMessage("error", "title is not correct!! BUG BUG BUG!!!");
-			takeScreenshot("freecrmloginpage");
+			//getRunTimeInfoMessage("error", "title is not correct!! BUG BUG BUG!!!");
+			//takeScreenshot("freecrmloginpage");
 			Assert.assertTrue(false);
 		}
 
@@ -83,7 +83,7 @@ public class FreeCrmTest {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		// now copy the screenshot to desired location using copyFile //method
 		FileUtils.copyFile(src, 
-				new File("/Users/NaveenKhunteta/Documents/MyPOMFramework/PageObjectModel/screenshots/" + fileName +".png"));
+				new File("C:\\SOFTWARES\\screenshots" + fileName +".png"));
 
 	}
 
