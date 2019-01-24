@@ -1,2 +1,0 @@
-# FreeCRMTest
-FreeCRMTest-PageObjectModel
